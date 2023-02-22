@@ -1,27 +1,21 @@
-// ./src/components/App.js
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import Home from './components/home';
+import About from './components/about';
+import Contact from './components/contact';
 
-import React from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import PageHome from './components/PageHome'
-import PageNotFound from './components/PageNotFound'
-import PageThread from './components/PageThread'
-
-const App = () => {
-  return (
-      <BrowserRouter>
-        <Switch>
-          <Route exact path={'/'}>
-            <PageHome />
-          </Route>
-          <Route exact path={'/threads/:threadId'}>
-            <PageThread />
-          </Route>
-          <Route path={'*'}>
-            <PageNotFound />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-  )
+export default function App() {
+    return (
+        <>
+            <BrowserRouter>
+                <div className="App">
+                    <h1>Hello React Router v6</h1>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/contact" element={<Contact />} />
+                    </Routes>
+                </div>
+            </BrowserRouter>
+        </>
+    );
 }
-
-export default App
